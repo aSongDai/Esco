@@ -2,9 +2,7 @@
 
 
 #include "Esco/Application.h"
-#include "Esco/Core.h"
-
-
+#include "Esco/Log.h"
 
 // ----------------Entry Pointer-----------
 #include "Esco/EntryPointer.h"
