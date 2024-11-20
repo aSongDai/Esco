@@ -8,7 +8,7 @@ extern Esco::Application* Esco::CreateApplication();
 int main(int argc, int** argv) {
 	printf("Welcome to Esco Engine...\n");
 	auto app = Esco::CreateApplication();
-	app->run();
+	app->Run();
 	delete app;
 }
 

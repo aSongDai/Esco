@@ -1,6 +1,6 @@
 #include <Esco.h>
 
-class Sandbox : public Esco::Application {
+class ESCO_API Sandbox : public Esco::Application {
 public:
 	Sandbox() {
 

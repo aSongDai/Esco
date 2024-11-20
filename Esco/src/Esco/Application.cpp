@@ -8,8 +8,9 @@ Esco::Application::~Application() {
 
 }
 
-void Esco::Application::run() {
-	while (true) {
+void Esco::Application::Run() {
+	Esco::WindowResizeEvent resizeEvent(1280, 799);
+	ESCO_CLIENT_TRACE(resizeEvent);
 
-	}
+	while (true);
 }

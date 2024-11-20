@@ -1,19 +1,20 @@
 workspace "Esco"
-    architecher "x64"
+    architecture "x64"
 
-    Configurations{
+    configurations{
         "Debug",
         "Release",
         "Dist"
     }
 
-outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecher}"
+outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 project "Esco"
     location "Esco"
     kind "SharedLib"
     language "C++"
-    // 目标文件位置
+    
+    -- 目标文件位置
     targetdir  ("bin/" .. outputdir .. "/%{prj.name}")
     objdir  ("bin-int/" .. outputdir .. "/%{prj.name}")
 
@@ -23,10 +24,11 @@ project "Esco"
     }
 
     includedirs {
-        "%{prj.name}/vendor/spdlog/include"
+        "%{prj.name}/vendor/spdlog/include",
+        "%{prj.name}/src"
     }
 
-    // 宏
+    -- 宏
     filter "system:windows"
         cppdialect "C++17"
         staticruntime "On"
@@ -35,7 +37,7 @@ project "Esco"
         defines {
             "ESCO_PLATFORM_WINDOWS",
             "ESCO_BUILD_DLL",
-            "_WINDLL"
+            "FMT_"
         }
         
         postbuildcommands 
@@ -48,6 +50,7 @@ project "Esco"
             "ESCO_DEBUG"
         }
         symbols "On"
+        buildoptions "/MTd"
 
     filter "configurations:Release"
         defines{
@@ -60,7 +63,7 @@ project "Esco"
         }
         optimize "On"
 
-    filter {"system:windows", "configuration:Release"}
+    filter {"system:windows", "configurations:Release"}
         buildoptions "/MT"
 
 

@@ -1,6 +1,9 @@
 #pragma once
 
 #include "Core.h"
+#include "Events/Event.h"
+#include "Events/ApplicationEvent.h"
+#include "Esco/Log.h"
 
 namespace Esco {
 
@@ -10,7 +13,7 @@ namespace Esco {
 		Application();
 		virtual ~Application();
 
-		void run();
+		void Run();
 	};
 
 
